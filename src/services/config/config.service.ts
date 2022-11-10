@@ -4,7 +4,7 @@ import { Injectable, Scope } from '@nestjs/common';
 export class ConfigService {
   get appConfig() {
     return {
-      env: 'development',
+      env: process.env.NODE_ENV || 'development',
       sqs: {
         ordersQueueUrl: 'https://sqs.<region>.amazonaws.com/<accountId>/<QueueName>',
       },
